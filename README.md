@@ -1,11 +1,11 @@
-Read-only root filesystem for Raspbian Stretch
+Read-only root filesystem for Raspbian Stretch and Jetson Nano
 ============================================
 This repository contains some useful files that allow you to use a Raspberry PI using a readonly filesystem.
 After running install.sh everything will be set up and the system will reboot into read-only mode.
 
 See instructions below to see how to switch to permanent or temporary write-mode.
 
-This script is tested with a freshly deployed Raspbian image with "desktop and recommended software", specifically with the img file dated 2018-11-13, kernel 4.14. (Tested on a Rpi 3B+). It has also been tested on a recent Rasbian image (Buster) on a Rpi 4B and a Rpi Zero W.
+This script is tested with a freshly deployed Raspbian image with "desktop and recommended software", specifically with the img file dated 2018-11-13, kernel 4.14. (Tested on a Rpi 3B+). It has also been tested on a recent Rasbian image (Buster) on a Rpi 4B and a Rpi Zero W. Works on Jetson Nano.
 
 This files contains some ideas and code of the following projects:
 - https://github.com/josepsanzcamp/root-ro
@@ -33,19 +33,34 @@ Read more about the overlay filesystem here: https://wiki.archlinux.org/index.ph
 Setup
 =====
 To get everything configured and to enable the read-only filesystem, you can simply paste these commands.
+
+On Raspberry PI:
 ```
 sudo apt-get -y install git
 cd /home/pi
-git clone https://github.com/JasperE84/root-ro.git
+git clone https://github.com/lukaszwielgosz/root-ro.git
 cd root-ro
-chmod +x install.sh
-sudo ./install.sh
+chmod +x rpi_install.sh
+sudo ./rpi_install.sh
 ```
+
+On Jetson Nano:
+```
+sudo apt-get -y install git
+cd /home/jetson
+git clone https://github.com/lukaszwielgosz/root-ro.git
+cd root-ro
+chmod +x jetson_nano_install.sh
+sudo ./jetson_nano_install.sh
+```
+
 The install.sh script will configure and request to reboot the system.
 
 Rebooting to permanent write-mode (disabling the overlay fs)
 ============
+
 Execute: 
+
 ```
 sudo /root/reboot-to-writable-mode.sh
 ```
