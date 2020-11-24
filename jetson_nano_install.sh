@@ -24,4 +24,4 @@ if ! grep -q "INITRD /boot/initrd.img" /boot/extlinux/extlinux.conf; then sed -i
 cp reboot-to-readonly-mode.sh /root/
 cp reboot-to-writable-mode.sh /root/
 chmod +x /root/reboot-to-readonly-mode.sh
-chmod +x /root/reboot-to-readonly-mode.sh
+chmod +x /root/reboot-to-writable-mode.sh
