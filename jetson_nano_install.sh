@@ -1,3 +1,4 @@
+update-initramfs -c -k `uname -r`
 
 # Change a few things in /etc/initramfs-tools so that overlayfs is used on startup to mount a ready-only root
 echo overlay >> /etc/initramfs-tools/modules
