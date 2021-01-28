@@ -23,7 +23,7 @@ update-initramfs -c -k `uname -r`
 if ! grep -q "INITRD /boot/initrd.img" /boot/extlinux/extlinux.conf; then sed -i "s/INITRD \/boot\/initrd/INITRD \/boot\/initrd.img/" /boot/extlinux/extlinux.conf; fi
 
 rm /boot/initrd.img
-ln -rs /boot/initrd.img-`uname -r` initrd.img
+ln -rs /boot/initrd.img-`uname -r` /boot/initrd.img
 
 # Before rebooting, also add the helper scripts from JasperE84/root-ro:
 #wget https://raw.githubusercontent.com/JasperE84/root-ro/master/reboot-to-readonly-mode.sh -O /root/reboot-ro
